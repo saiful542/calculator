@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700;800;1000&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    width: 90%;
+    font-weight: 800;
+}
+
+.flex-one {
+    flex: 1;
+}
+
+.flex-two {
+    flex: 2;
+}
+
+.flex-three {
+    flex: 3;
+}
+
+.flex-four {
+    flex: 4;
+}
+
+.bg-ash {
+    background-color: rgba(239, 239, 239, 255);
+
+}
+
+.calculator {
+    border: 2px solid rgba(227, 227, 227, 255);
+    border-radius: 10px;
+    padding: 30px 20px;
+    max-width: 420px;
+    margin: 80px auto ;
+
+}
+
+.calculator .display {
+    display: flex;
+    flex-direction: column;
+}
+
+.display input{
+    border: none;
+    outline: none;
+    background: none;
+    padding: 10px 0;
+    text-align: right;
+}
+
+.calculator table {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.calculator table tr {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    text-align: center;
+
+}
+
+.calculator table tr:first-child td {
+    background: rgba(253, 215, 193, 255);
+    color: rgba(172, 42, 1, 255);
+}
+
+.calculator table tr:last-child td:last-child {
+    background: rgba(248, 147, 90, 255);
+}
+
+.calculator table tr td:last-child {
+    background: rgba(253, 215, 193, 255);
+    color: rgba(172, 42, 1, 255);
+}
+
+.calculator table tr td {
+    background: rgba(239, 239, 239, 255);
+}
+
+.calculator table tr td {
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 79px;
+}
