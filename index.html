@@ -15,38 +15,38 @@
         <div class="container">
             <div class="calculator">
                 <div class="display">
-                    <input type="text" class="calculation" disabled value="12">
-                    <input type="text" class="answer" value="answer">
+                    <input disabled type="text" class="calculation" value="00" id="w">
+                    <input disabled type="text" class="answer" value="0">
                 </div>
                 <table>
                         <tr>
-                            <td>C</td>
-                            <td>Del</td>
-                            <td>%</td>
-                            <td>/</td>
+                            <td class="flex-one" onclick="insert('c')">C</td>
+                            <td class="flex-one" onclick="insert('del')">Del</td>
+                            <td class="flex-one" onclick="insert('%')">%</td>
+                            <td class="flex-one" onclick="insert('/')">/</td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>x</td>
+                            <td class="flex-one" onclick="insert('1')">1</td>
+                            <td class="flex-one" onclick="insert('2')">2</td>
+                            <td class="flex-one" onclick="insert('3')">3</td>
+                            <td class="flex-one" onclick="insert('*')">x</td>
                         </tr>
                         <tr>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>+</td>
-                        </tr>
-                        <tr colspan="2">
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>-</td>
+                            <td class="flex-one" onclick="insert('4')">4</td>
+                            <td class="flex-one" onclick="insert('5')">5</td>
+                            <td class="flex-one" onclick="insert('6')">6</td>
+                            <td class="flex-one" onclick="insert('+')">+</td>
                         </tr>
                         <tr>
-                            <td class="flex-two">0</td>
-                            <td>.</td>
-                            <td>=</td>
+                            <td class="flex-one" onclick="insert('7')">7</td>
+                            <td class="flex-one" onclick="insert('8')">8</td>
+                            <td class="flex-one" onclick="insert('9')">9</td>
+                            <td class="flex-one" onclick="insert('-')">-</td>
+                        </tr>
+                        <tr>
+                            <td onclick="insert('0')" class="flex-fraction">0</td>
+                            <td class="flex-one" onclick="insert('.')">.</td>
+                            <td class="flex-one" onclick="insert('=')">=</td>
                         </tr>
                 </table>
             </div>
