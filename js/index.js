@@ -72,10 +72,13 @@ const add = (show_value) => {
     // let p = show_value.split('+').slice(0, -1).forEach(element => {
     //     sum += parseFloat(element);
     // });
-    if (reducer) {
+    if (reducer_counter==0) {
+        console.log(i)
         sum += parseFloat(show_value.split('+')[i]);
         i++;
+        reducer_counter = 1;
     }
+
     // updated_value = toString(sum);
     return sum;
 }
@@ -126,13 +129,13 @@ const clear_display = () => {
     show_value = ' ';
     display_calculation.value = show_value;
     final_answer('');
-    console.log(answer)
-    i = 0;
+    clear_variables();
 }
 const clear_update = () => {
     show_value = ' ';
     display_calculation.value = show_value;
-    i = 0;
+    clear_variables();
+
 }
 
 const reducer = () => {
@@ -141,12 +144,19 @@ const reducer = () => {
     display_calculation.value = new_value;
     i--;
     reducer_counter = 1;
-
     return reducer_counter;
 }
 
 
 const final_answer = (answer) => {
     display_answer.value = answer;
+}
+
+
+//clear all global variables
+const clear_variables = () => {
+    i = 0;
+    sum = 0;
+    reducer_counter = 0;
 }
 
