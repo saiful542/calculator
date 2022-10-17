@@ -32,11 +32,19 @@ const insert = (inserted_value) => {
 
             // }
 
-            show_value += inserted_value
-            display_calculation.value = show_value;
-            // final_answer(eval(show_value))
-            calculation(show_value, inserted_value)
-            // dot_counter++;
+
+            if (inserted_value == '.') {
+                dot_counter++;
+            }
+
+            if (dot_counter <= 1 || inserted_value != '.') {
+                show_value += inserted_value
+                display_calculation.value = show_value;
+                // final_answer(eval(show_value))
+                calculation(show_value, inserted_value)
+            }
+
+
 
         }
     }
@@ -52,15 +60,19 @@ const calculation = (show_value, inserted_value) => {
         console.log(add(show_value))
         // console.log(parseFloat(show_value.split('+')[0]));
         // console.log(show_value.split('+')[0])
+        dot_counter = 0;
     }
     if (inserted_value == '-') {
         console.log(subtraction(show_value))
+        dot_counter = 0;
     }
     if (inserted_value == 'x') {
         console.log(multiply(show_value))
+        dot_counter = 0;
     }
     if (inserted_value == '/') {
         console.log(divide(show_value))
+        dot_counter = 0;
     }
 
 
@@ -72,7 +84,7 @@ const add = (show_value) => {
     // let p = show_value.split('+').slice(0, -1).forEach(element => {
     //     sum += parseFloat(element);
     // });
-    if (reducer_counter==0) {
+    if (reducer_counter == 0) {
         console.log(i)
         sum += parseFloat(show_value.split('+')[i]);
         i++;
@@ -143,6 +155,7 @@ const reducer = () => {
     show_value = new_value;
     display_calculation.value = new_value;
     i--;
+    dot_counter = 0;
     reducer_counter = 1;
     return reducer_counter;
 }
@@ -158,5 +171,6 @@ const clear_variables = () => {
     i = 0;
     sum = 0;
     reducer_counter = 0;
+    dot_counter = 0
 }
 
