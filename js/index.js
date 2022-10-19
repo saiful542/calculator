@@ -2,7 +2,7 @@ let show_value = '';
 let updated_value = ''
 let display_calculation = document.querySelector('.display .calculation')
 let display_answer = document.querySelector('.display .answer')
-let answer = 0;
+// let answer = 0;
 let dot_counter = 0;
 let i = 0;
 let reducer_counter = 0;
@@ -14,7 +14,7 @@ const insert = (inserted_value) => {
         optional_calculation(inserted_value)
     }
 
-    if (inserted_value != '=' && inserted_value != 'c' && inserted_value != 'del') {
+    else if (inserted_value != '=' && inserted_value != 'c' && inserted_value != 'del') {
 
         if (!(isNaN(show_value[show_value.length - 1]) && isNaN(inserted_value))) {
 
@@ -30,38 +30,55 @@ const insert = (inserted_value) => {
                     change_value = 'x'
                 show_value += change_value
                 display_calculation.value = show_value;
-
                 calculation(calculation_value, inserted_value)
+                final_answer(eval(calculation_value))
             }
         }
     }
-    else
-        calculation(calculation_value, inserted_value);
+    // else
+    //     calculation(calculation_value, inserted_value);
 
 
 
 }
 
 const calculation = (calculation_value, inserted_value) => {
-
-    if (inserted_value == '+') {
-        // console.log(add(show_value))
-        dot_counter = 0;
-    }
-    if (inserted_value == '-') {
-        // console.log(subtraction(show_value))
-        dot_counter = 0;
-    }
-    if (inserted_value == '*') {
-        // console.log(multiply(show_value))
-        dot_counter = 0;
-    }
-    if (inserted_value == '/') {
-        // console.log(divide(show_value))
-        dot_counter = 0;
+    switch (inserted_value) {
+        case '+':
+            dot_counter = 0;
+            break;
+        case '-':
+            dot_counter = 0;
+            break;
+        case '*':
+            dot_counter = 0;
+            break;
+        case '/':
+            dot_counter = 0;
+            break;
     }
 
-    final_answer(eval(calculation_value))
+
+    // if (inserted_value == '+') {
+    //     console.log(add(show_value))
+    //     dot_counter = 0;
+    // }
+    // else if (inserted_value == '-') {
+    //     console.log(subtraction(show_value))
+    //     dot_counter = 0;
+    // }
+    // else if (inserted_value == '*') {
+    //     console.log(multiply(show_value))
+    //     dot_counter = 0;
+    // }
+    // else if (inserted_value == '/') {
+    //     console.log(divide(show_value))
+    //     dot_counter = 0;
+    // }
+
+
+
+
 }
 
 // const add = (show_value) => {
@@ -104,7 +121,7 @@ const optional_calculation = (inserted_value) => {
     if (inserted_value == '=') {
         clear_update();
     }
-    if (inserted_value == 'c') {
+    else if (inserted_value == 'c') {
         clear_display()
     }
     else {
@@ -112,42 +129,34 @@ const optional_calculation = (inserted_value) => {
     }
 }
 
-
+const clear_update = () => {
+    final_answer(eval(calculation_value))
+    show_value = ' ';
+    display_calculation.value = show_value;
+    clear_variables();
+}
 const clear_display = () => {
     show_value = ' ';
     display_calculation.value = show_value;
     display_answer.value = ''
     clear_variables();
 }
-const clear_update = () => {
-    final_answer(eval(calculation_value))
-    show_value = ' ';
-    display_calculation.value = show_value;
-    console.log(calculation_value)
-    clear_variables();
-    console.log(calculation_value)
-
-}
 
 const reducer = () => {
     let new_value = show_value.slice(0, -1);
     show_value = new_value;
     display_calculation.value = new_value;
-    final_answer(eval(calculation_value))
-    // i--;
+    let new_calculation = calculation_value.slice(0, -1)
+    calculation_value = new_calculation;
+    final_answer(eval(calculation_value));
 
-    if (dot_counter > 0) {
+    if (show_value[show_value.length - 1] == '.') {
         dot_counter = 0;
-        console.log(dot_counter)
     }
-
-    // reducer_counter = 1;
-    // return reducer_counter;
 }
 
 
 const final_answer = (answer) => {
-    console.log(answer)
     if (answer == undefined)
         answer = '0'
     display_answer.value = answer;
@@ -161,7 +170,6 @@ const clear_variables = () => {
     // sum = 0;
     // reducer_counter = 0;
     dot_counter = 0
-    calculation_value = '';
-
+    calculation_value = ' '
 }
 
